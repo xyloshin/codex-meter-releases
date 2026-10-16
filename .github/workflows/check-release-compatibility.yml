@@ -1,0 +1,22 @@
+name: Check release compatibility
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    name: Release on ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-14, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Download exact draft candidate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download v2.2.0-beta.2 --repo xyloshin/codex-meter-releases --pattern 'Codex-Meter-2.2.0-beta.2-macos-universal.zip' --dir "$RUNNER_TEMP/release-check"
+      - name: Verify package and launch on clean runner
+        run: python3 scripts/check-release-compatibility.py "$RUNNER_TEMP/release-check"
