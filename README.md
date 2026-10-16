@@ -22,7 +22,7 @@ A small Mac menu-bar app for keeping track of your remaining allowance, reset ti
 
 The upcoming beta bundles Node, so you will not need to install Node separately. A compatible Codex client signed in with your ChatGPT account is still required.
 
-The candidate is built for Apple Silicon and Intel with a macOS 14 minimum. Testing so far covers macOS 26 on Apple Silicon and Intel code running through Rosetta. Older macOS versions and physical Intel Macs still need testing.
+The candidate is built for Apple Silicon and Intel with a macOS 14 minimum. In addition to local macOS 26 testing, the exact release passed automated download, Gatekeeper, bundled-runtime and native-startup checks on clean macOS 14.8.9 Apple Silicon and macOS 15.7.9 Intel runners. [Test results](https://github.com/xyloshin/codex-meter-releases/actions/runs/38892114092). Interactive use, signed-in usage on those older systems, and physical-device sleep/wake and notifications still need real-world testing.
 
 ## Downloads
 
