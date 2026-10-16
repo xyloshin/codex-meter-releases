@@ -6,6 +6,10 @@ A small Mac menu-bar app for keeping track of your remaining allowance, reset ti
 
 > The next beta is being prepared. There is no public download yet.
 
+![Codex Meter with fictional demo data](assets/usage-preview.png)
+
+*App interface with fictional demo data.*
+
 ## What you get
 
 - **A quick menu-bar reading:** remaining allowance and its reset date.
