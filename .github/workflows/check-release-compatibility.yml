@@ -2,7 +2,9 @@ name: Check release compatibility
 on:
   workflow_dispatch:
 permissions:
-  contents: read
+  # GitHub requires push access even to read unpublished draft assets.
+  # This manual workflow only downloads; it never publishes or changes a release.
+  contents: write
 jobs:
   verify:
     name: Release on ${{ matrix.runner }}
@@ -14,6 +16,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - name: Download exact draft candidate
         env:
           GH_TOKEN: ${{ github.token }}
