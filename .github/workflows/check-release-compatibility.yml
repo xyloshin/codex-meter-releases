@@ -1,6 +1,19 @@
 name: Check release compatibility
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: Draft or published release tag
+        required: true
+        type: string
+      sha256:
+        description: Expected ZIP SHA-256
+        required: true
+        type: string
+      build:
+        description: Expected numeric bundle build
+        required: true
+        type: string
 permissions:
   # GitHub requires push access even to read unpublished draft assets.
   # This manual workflow only downloads; it never publishes or changes a release.
@@ -14,15 +27,30 @@ jobs:
         runner: [macos-14, macos-15-intel]
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 15
+    env:
+      RELEASE_TAG: ${{ inputs.tag }}
+      EXPECTED_SHA256: ${{ inputs.sha256 }}
+      EXPECTED_BUILD: ${{ inputs.build }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Download exact draft candidate
+      - name: Validate candidate selection
+        run: |
+          python3 - <<'PY'
+          import os, re
+          assert re.fullmatch(r'v[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9.]+)?', os.environ['RELEASE_TAG'])
+          assert re.fullmatch(r'[0-9a-f]{64}', os.environ['EXPECTED_SHA256'])
+          assert re.fullmatch(r'[0-9]+', os.environ['EXPECTED_BUILD'])
+          name = 'Codex-Meter-' + os.environ['RELEASE_TAG'][1:] + '-macos-universal.zip'
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              f.write('ARCHIVE_NAME=' + name + '\n')
+          PY
+      - name: Download exact candidate
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p "$RUNNER_TEMP/release-check"
-          gh api -H 'Accept: application/octet-stream' repos/xyloshin/codex-meter-releases/releases/assets/647041625 > "$RUNNER_TEMP/release-check/Codex-Meter-2.2.0-beta.2-macos-universal.zip"
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --pattern "$ARCHIVE_NAME" --dir "$RUNNER_TEMP/release-check"
       - name: Verify package and launch on clean runner
         run: python3 scripts/check-release-compatibility.py "$RUNNER_TEMP/release-check"

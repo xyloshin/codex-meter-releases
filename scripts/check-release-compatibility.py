@@ -1,4 +1,4 @@
-"""Smoke-test the exact beta.2 binary on disposable macOS CI machines.
+"""Smoke-test the exact selected release binary on disposable macOS CI machines.
 
 No signing credentials, source checkout, Codex account or personal data required.
 This checks runtime startup, not interactive UI or physical-device behavior.
@@ -13,8 +13,11 @@ import sys
 import time
 
 root = Path(sys.argv[1]).resolve()
-archive = root / 'Codex-Meter-2.2.0-beta.2-macos-universal.zip'
-expected = 'a0a22166021f26d069d2abe39348672f8dc6065e841c7929147d34e6eec9cfdd'
+archive_name = os.environ['ARCHIVE_NAME']
+assert Path(archive_name).name == archive_name and archive_name.endswith('.zip')
+archive = root / archive_name
+expected = os.environ['EXPECTED_SHA256']
+assert len(expected) == 64 and all(c in '0123456789abcdef' for c in expected)
 assert hashlib.sha256(archive.read_bytes()).hexdigest() == expected
 
 def run(args, **kwargs):
@@ -27,7 +30,7 @@ arch = run(['/usr/bin/uname', '-m'])
 run(['/usr/bin/ditto', '-x', '-k', str(archive), str(root / 'extracted')])
 app = root / 'extracted/Codex Meter.app'
 info = plistlib.loads((app / 'Contents/Info.plist').read_bytes())
-assert info['CFBundleVersion'] == '2'
+assert info['CFBundleVersion'] == os.environ['EXPECTED_BUILD']
 assert info['LSMinimumSystemVersion'] == '14.0'
 run(['/usr/bin/codesign', '--verify', '--deep', '--strict', str(app)])
 run(['/usr/bin/xcrun', 'stapler', 'validate', str(app)])
@@ -53,6 +56,7 @@ with log.open('w') as output:
             process.terminate()
             process.wait(timeout=15)
 result = dict(macOS=os_version, architecture=arch, sha256=expected, node=node_version,
+              build=info["CFBundleVersion"], version=info["CFBundleShortVersionString"],
               signature=True, stapledTicket=True, gatekeeper=True, emptyHistory=True,
               nativeStartup15Seconds=True, interactiveUI=False, signedInUsage=False,
               physicalDeviceUserTest=False)
