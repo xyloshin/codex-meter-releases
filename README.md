@@ -4,11 +4,14 @@
 
 A small Mac menu-bar app for keeping track of your remaining allowance, reset time and extra credits. Open its window for usage history and alerts when your balance is running low.
 
-> The next beta is being prepared. There is no public download yet.
+**[Download for Mac](https://github.com/xyloshin/codex-meter-releases/releases/download/v2.2.0-beta.9/Codex-Meter-2.2.0-beta.9-macos-universal.zip)** · Beta 2.2.0-beta.9 · macOS 14+ · Apple Silicon & Intel
 
-![Codex Meter with fictional demo data](assets/usage-preview.png)
+<p>
+<img src="https://raw.githubusercontent.com/xyloshin/codex-meter-releases/main/assets/beta9-menu-tight.png" alt="In your Mac’s menu bar: normal, warning and low allowance, shown beside Wi-Fi and battery icons. Changes colour as your allowance runs low." width="600"><br>
+<img src="https://raw.githubusercontent.com/xyloshin/codex-meter-releases/main/assets/beta8-allowance-reset-chart.png" alt="Allowance history with varied usage, exhaustion and a reset to 100%" width="337" height="238" align="top"><img src="https://raw.githubusercontent.com/xyloshin/codex-meter-releases/main/assets/beta9-usage-forecast-compact.png" alt="Remaining allowance, extra credits and forecast timeline before reset" width="263" height="238" align="top">
+</p>
 
-*App interface with fictional demo data.*
+*Demo data. Click an image to see it larger.*
 
 ## What you get
 
@@ -20,13 +23,15 @@ A small Mac menu-bar app for keeping track of your remaining allowance, reset ti
 
 ## Requirements
 
-The upcoming beta bundles Node, so you will not need to install Node separately. A compatible Codex client signed in with your ChatGPT account is still required.
+This beta bundles Node, so you do not need to install Node separately. A compatible Codex client signed in with your ChatGPT account is still required.
 
-The candidate is built for Apple Silicon and Intel with a macOS 14 minimum. In addition to local macOS 26 testing, the exact release passed automated download, Gatekeeper, bundled-runtime and native-startup checks on clean macOS 14.8.9 Apple Silicon and macOS 15.7.9 Intel runners. [Test results](https://github.com/xyloshin/codex-meter-releases/actions/runs/38892114092). Interactive use, signed-in usage on those older systems, and physical-device sleep/wake and notifications still need real-world testing.
+Beta 2.2.0-beta.9 is built for Apple Silicon and Intel with a macOS 14 minimum. In addition to local macOS 26 testing, the exact release passed automated download, Gatekeeper, bundled-runtime and native-startup checks on clean macOS 14.8.9 Apple Silicon and macOS 15.7.9 Intel runners. [Test results](https://github.com/xyloshin/codex-meter-releases/actions/runs/39235191489). Interactive use, signed-in usage on those older systems, and physical-device sleep/wake and notifications still need real-world testing.
 
 ## Downloads
 
-Published builds will appear in [Releases](https://github.com/xyloshin/codex-meter-releases/releases). Download the app ZIP listed in a release, not GitHub’s source-code archives, which contain only this downloads repository.
+Download the app ZIP from the [beta.9 release](https://github.com/xyloshin/codex-meter-releases/releases/tag/v2.2.0-beta.9), unzip it, and move **Codex Meter.app** to Applications. GitHub’s source-code archives contain only this downloads repository.
+
+The app is signed and notarized by Apple. See [all releases](https://github.com/xyloshin/codex-meter-releases/releases) for release notes and downloads.
 
 ## Privacy and feedback
 
