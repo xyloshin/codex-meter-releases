@@ -2,9 +2,9 @@
 
 **Your Codex allowance, at a glance.**
 
-A small Mac menu-bar app for keeping track of your remaining allowance, reset time and extra credits. Open its window for usage history and alerts when your balance is running low.
+A small Mac menu-bar app that shows your remaining allowance, reset time and extra credits. Open its window for usage history and low-balance alerts.
 
-**[Download for Mac](https://github.com/xyloshin/codex-meter-releases/releases/download/v2.2.0-beta.9/Codex-Meter-2.2.0-beta.9-macos-universal.zip)** · Beta 2.2.0-beta.9 · macOS 14+ · Apple Silicon & Intel
+**[Download for Mac](https://github.com/xyloshin/codex-meter-releases/releases/download/v2.2.0-beta.9/Codex-Meter-2.2.0-beta.9-macos-universal.zip)** · Public beta · macOS 14+ · Apple Silicon & Intel
 
 <p>
 <img src="https://raw.githubusercontent.com/xyloshin/codex-meter-releases/main/assets/beta9-menu-tight.png" alt="In your Mac’s menu bar: normal, warning and low allowance, shown beside Wi-Fi and battery icons. Changes colour as your allowance runs low." width="600"><br>
@@ -15,30 +15,39 @@ A small Mac menu-bar app for keeping track of your remaining allowance, reset ti
 
 ## What you get
 
-- **A quick menu-bar reading:** remaining allowance and its reset date.
-- **Allowance and extra credits:** separate balances, with purchased-credit usage shown when your allowance runs out.
-- **History and alerts:** saved readings over 24 hours, 7 days and 30 days, plus low-balance and fast-usage warnings.
-- **Built-in updates:** a Check for Updates command and signed update downloads.
-- **Local history:** readings stay on your Mac. No separate analytics account or cloud history sync.
+- **Allowance and extra credits**, shown separately.
+- **Usage history** over 24 hours, 7 days and 30 days.
+- **Low-balance and fast-usage alerts**, plus built-in updates.
+- **History kept on your Mac**, with no separate analytics account.
 
-## Requirements
+## Get started
 
-This beta bundles Node, so you do not need to install Node separately. A compatible Codex client signed in with your ChatGPT account is still required.
+Download the ZIP, unzip it, and move **Codex Meter.app** to Applications. You’ll need a compatible Codex client signed in with your ChatGPT account.
 
-Beta 2.2.0-beta.9 is built for Apple Silicon and Intel with a macOS 14 minimum. In addition to local macOS 26 testing, the exact release passed automated download, Gatekeeper, bundled-runtime and native-startup checks on clean macOS 14.8.9 Apple Silicon and macOS 15.7.9 Intel runners. [Test results](https://github.com/xyloshin/codex-meter-releases/actions/runs/39235191489). Interactive use, signed-in usage on those older systems, and physical-device sleep/wake and notifications still need real-world testing.
+<details>
+<summary>Compatibility and beta testing</summary>
 
-## Downloads
+Beta 2.2.0-beta.9 supports Apple Silicon and Intel, with a macOS 14 minimum. Node is bundled, so there’s nothing extra to install for that.
 
-Download the app ZIP from the [beta.9 release](https://github.com/xyloshin/codex-meter-releases/releases/tag/v2.2.0-beta.9), unzip it, and move **Codex Meter.app** to Applications. GitHub’s source-code archives contain only this downloads repository.
+In addition to local macOS 26 testing, the exact release passed automated download, Gatekeeper, bundled-runtime and native-startup checks on clean macOS 14.8.9 Apple Silicon and macOS 15.7.9 Intel runners. [Test results](https://github.com/xyloshin/codex-meter-releases/actions/runs/39235191489).
 
-The app is signed and notarized by Apple. See [all releases](https://github.com/xyloshin/codex-meter-releases/releases) for release notes and downloads.
+Interactive use and signed-in usage on those older systems, plus physical-device sleep/wake and notifications, still need real-world testing.
 
-## Privacy and feedback
+The app is signed and notarized by Apple. Use the app ZIP rather than GitHub’s source-code archives, which contain only this downloads repository. See [all releases](https://github.com/xyloshin/codex-meter-releases/releases) for release notes and downloads.
 
-Codex handles sign-in. Meter does not store passwords or sign-in tokens and does not start AI tasks to check usage. Account identifiers and usage history are stored locally. Please remove account details from screenshots and do not upload saved history or credentials.
+</details>
 
-[Report a problem](https://github.com/xyloshin/codex-meter-releases/issues) with your macOS version, what you expected and what happened.
+<details>
+<summary>Privacy and how it works</summary>
 
-This repository contains the download page and update feed. The app’s source repository is private.
+Codex handles sign-in. Meter does not store passwords or sign-in tokens and does not start AI tasks to check usage. Account identifiers and usage history stay on your Mac, with no cloud history sync.
 
-**Independent project, not affiliated with or endorsed by OpenAI.** This tracks Codex usage, not ordinary ChatGPT conversation limits or API billing. Alerts do not pause tasks or limit spending.
+Meter tracks Codex usage, not ordinary ChatGPT conversation limits or API billing. Purchased-credit usage is shown when your allowance runs out. Alerts do not pause tasks or limit spending.
+
+Updates are available through Check for Updates, with signed downloads. This repository contains the download page and update feed; the app’s source repository is private.
+
+</details>
+
+[Report a problem](https://github.com/xyloshin/codex-meter-releases/issues) with your macOS version and what happened. Please leave out account details, saved history and credentials.
+
+**Independent project, not affiliated with or endorsed by OpenAI.**
