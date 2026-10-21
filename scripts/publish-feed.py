@@ -1,6 +1,6 @@
 """Publish only the feed attached to the owner's published release."""
 import base64, json, os, pathlib, urllib.request, xml.etree.ElementTree as ET
-repo = "xyloshin/codex-meter-releases"
+repo = "xyloshin/codex-usage-meter"
 event = json.loads(pathlib.Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
 release = event["release"]
 assert event["action"] == "published" and not release["draft"]
@@ -13,6 +13,9 @@ with urllib.request.urlopen(url, timeout=30) as response:
     data = response.read(65537)
 assert len(data) <= 65536
 assert b"<!DOCTYPE" not in data and b"<!ENTITY" not in data
+# Existing release feeds may still use the repository's previous name.
+data = data.replace(b"https://github.com/xyloshin/codex-meter-releases/",
+                    f"https://github.com/{repo}/".encode())
 root = ET.fromstring(data)
 ns = "{http://www.andymatuschak.org/xml-namespaces/sparkle}"
 items = root.findall("./channel/item")

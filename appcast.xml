@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
   <channel>
-    <title>Codex Meter Updates</title>
+    <title>Codex Usage Meter Updates</title>
     <item>
       <title>Codex Usage Meter 2.2.0-beta.9</title>
       <sparkle:version>9</sparkle:version>
       <sparkle:shortVersionString>2.2.0-beta.9</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <description>Softer amber and red menu-bar warnings, with appearance-aware colours and a matching Settings preview.</description>
-      <enclosure url="https://github.com/xyloshin/codex-meter-releases/releases/download/v2.2.0-beta.9/Codex-Meter-2.2.0-beta.9-macos-universal.zip" sparkle:edSignature="a+6gqN4Kto/eKvPXmsEMyBk9mC63ilfZbStF3+vmJHEV3dX08SNu50MqTrtOoOdxpi7zbrw9n4NMcmVlezcMCA==" length="84074016" type="application/octet-stream" />
+      <enclosure url="https://github.com/xyloshin/codex-usage-meter/releases/download/v2.2.0-beta.9/Codex-Meter-2.2.0-beta.9-macos-universal.zip" sparkle:edSignature="a+6gqN4Kto/eKvPXmsEMyBk9mC63ilfZbStF3+vmJHEV3dX08SNu50MqTrtOoOdxpi7zbrw9n4NMcmVlezcMCA==" length="84074016" type="application/octet-stream" />
     </item>
   </channel>
 </rss>
