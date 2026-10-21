@@ -1,4 +1,4 @@
-# Codex Usage Meter
+# Codex Meter
 
 **Your Codex allowance, at a glance.**
 

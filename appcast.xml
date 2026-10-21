@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
   <channel>
-    <title>Codex Usage Meter Updates</title>
+    <title>Codex Meter Updates</title>
     <item>
-      <title>Codex Usage Meter 2.2.0-beta.9</title>
+      <title>Codex Meter 2.2.0-beta.9</title>
       <sparkle:version>9</sparkle:version>
       <sparkle:shortVersionString>2.2.0-beta.9</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
